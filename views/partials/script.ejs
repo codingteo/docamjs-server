@@ -1,0 +1,22 @@
+<!--SCRIPT IMPORT-->
+<!-- Questo tag importa lo script per Chart.js. Va messo per primo così lo si può utilizzare in tutti gli altri script, inclusi quelli del progetto -->
+<script src="/chartjs/dist/Chart.js"></script>
+
+<!-- SCRIPT RELATIVI AL PROGETTO: docams.js e graphics.js -->
+<script src="/docams.js"></script>
+<script src="/graphics.js"></script>
+
+<!-- Script che servono per far funzionare Bootsrap -->
+<script src="/jquery.js"></script>
+<script src="/popper.js"></script>
+<script src="/bootstrap.js"></script>
+
+<!-- Script che permette il funzionamento della Sidebar su Home -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+        });
+    });
+</script>
