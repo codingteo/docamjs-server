@@ -19,4 +19,4 @@ DocamsJS è il porting di un file Excel con le medesime funzioni della web app. 
         ◦ JavaScript;
         ◦ Framework Bootstrap;
         ◦ Libreria JavaScript Chart.js
-        ◦ React (forse);
+        ◦ Node.js;
