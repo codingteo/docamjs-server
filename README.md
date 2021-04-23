@@ -1,5 +1,5 @@
 # docamsjs-server
-Porting di Docams da Excel a JavaScript Vanilla, usando Node.js, Bootstrap e Chart.js
+Porting di Docams da Excel a JavaScript, usando Node.js, Bootstrap e Chart.js
 
 ## Descrizione
 DocamsJS è il porting di un file Excel con le medesime funzioni della web app. Permette di gestire i voti di uno studente distribuiti nel trimestre e nel pentamestre, con la possibilità di analizzare il proprio andamento scolastico tramite una serie di strumenti 
