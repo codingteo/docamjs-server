@@ -9,7 +9,8 @@ const { render } = require("ejs")
 const { text } = require("body-parser")
 
 //utilità per Docams
-const portaDocams=3000
+const portaDocams=8080
+const intervalloLogout=1800000
 
 //variabile utente e di utilità per il server
 var utentiLoggati=[]
@@ -20,12 +21,12 @@ const rimuoviUtenteLoggato=(utente)=>{
             temp.push(utentiLoggati[i])
         }
     }
-
+    console.log("UTENTE SLOGGATO: SESSIONE SCADUTA - "+utente)
     utentiLoggati=temp
 }
 
 const app=express()
-app.listen(portaDocams,"192.168.1.60",()=>console.log("Ascoltando richieste sulla porta "+portaDocams))
+app.listen(portaDocams,"192.168.1.56",()=>console.log("Ascoltando richieste sulla porta "+portaDocams))
 
 //registro il view engine
 app.set('view engine', 'ejs')
@@ -124,6 +125,7 @@ app.post("/accedi",(request,response)=>{
 
             //datiRichiesta.password==utente.accesso.password
             if (await bcrypt.compare(datiRichiesta.password, utente.accesso.password)) {
+                setTimeout(()=>rimuoviUtenteLoggato(datiRichiesta.username),intervalloLogout)
                 response.status(200).json(JSON.stringify(utente))
                 utentiLoggati.push(datiRichiesta.username)
             }

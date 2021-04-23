@@ -319,6 +319,7 @@ modificaVoto=function(){
     aggiornaInformazioniStampate(utente.materie[indirizzoMateriaModifica])
     aggiornaGraficiMedia(utente.materie[indirizzoMateriaModifica])
     mostraMediaGenerale()
+    aggiornaSuServer()
 }
 
 calcolaProssimoVoto=function(materia){
@@ -336,7 +337,7 @@ calcolaProssimoVoto=function(materia){
     let obiettivoPentamestre=materia.pentamestre.obiettivo
 
     if (materia.trimestre.obiettivo>=1 && materia.trimestre.obiettivo<=10){
-        for (i=0;i<utente.materie[i].voti.length;i++) sommaVotiTrimestre+=materia.trimestre.voti[i].voto
+        for (i=0;i<materia.trimestre.voti.length;i++) sommaVotiTrimestre+=materia.trimestre.voti[i].voto
         numeroVotiTrimestre=materia.trimestre.voti.length
         sommaObiettivoTrimestre=obiettivoTrimestre*(numeroVotiTrimestre+1)
         prossimoVotoTrimestre=sommaObiettivoTrimestre-sommaVotiTrimestre
@@ -460,25 +461,6 @@ creaTabellaMateriaD=function(voti,id){
 
 }
 
-preparaDownloadFile=function(){
-    let json=JSON.stringify(utente)
-    let blobFile=new Blob ([json], {type: "json"})
-    document.getElementById("downloadButton").href=URL.createObjectURL(blobFile)
-}
-
-controllaValiditaVoto=function(listaInput){
-    let nonValido=false
-
-    for (i=0;i<listaInput.length;i++){
-        if (document.getElementById(listaInput[i])<1 || document.getElementById(listaInput[i])>10) {
-            document.getElementById(listaInput[i]).style.borderColor="red"
-            nonValido=true
-        }
-    }
-    prompt("INPUT NON VALIDO")
-    return nonValido
-}
-
 rimuoviMateria=function(){
     let materiaRimuovi=document.getElementById("selectRimuoviMateria").value
     let indirizzoMateria=trovaIndirizzoMateria(materiaRimuovi)
@@ -500,23 +482,6 @@ rimuoviMateria=function(){
     aggiornaGraficoRimuoviMateria(labelGrafico)
     aggiornaSuServer()
     document.getElementById("selectRimuoviMateria").value="Scegli una materia..."
-}
-
-caricaFile=function() {
-    let inputFiles=document.getElementById("inputFile").files
-    let fileLoad=inputFiles[0]
-    let fileReaderUno=new FileReader()
-
-    fileReaderUno.addEventListener("loadend",()=>{
-        mostraHomeCarica()
-    })
-
-    fileReaderUno.onload=function() {
-        utente=JSON.parse(fileReaderUno.result)
-    }
-    
-
-    fileReaderUno.readAsText(fileLoad)
 }
 
 creaGrafici=function(){
@@ -729,6 +694,8 @@ const salvaSuServer=async ()=>{
         if (utente!=null) {
             utente.accesso.password=data
             window.onbeforeunload=()=>logout()
+            window.onunload=()=>logout()
+            window.onclose=()=>logout()
             mostraHomeCarica()            
         }
         else console.log("Già esiste")
@@ -750,7 +717,11 @@ const aggiornaSuServer=async ()=>{
         body: JSON.stringify(utente)
     })
     if (result.status=="ok") console.log("ok")
-    else console.log(result.status)
+    else {
+        console.log(result.status)
+        //modalKickato
+        $('#modalKickato').modal('show')
+    }
 }
 
 const accedi=()=>{

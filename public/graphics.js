@@ -56,6 +56,7 @@ mostraHomeCarica=function(){
     document.getElementById("home").style.display="block"
     mostraDivSezione("homeSezione")
     mostraInfoUtente()
+    mostraImpostazioniVoti()
     creaGrafici()
     creaSezioneMaterie()
     creaSezionePrevisioneVotiInPagela()
@@ -129,6 +130,8 @@ esci=function(){
     document.getElementById("inputNuovoCognome").value=""
     document.getElementById("inputNuovoClasse").value=""
     document.getElementById("inputNuovoScuola").value=""
+    document.getElementById("inputNuovoUsername").value=""
+    document.getElementById("inputNuovoPassword").value=""
 
     document.getElementById("home").style.display="none"
     document.getElementById("nuovoUtente").style.display="block"
