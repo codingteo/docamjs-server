@@ -7,10 +7,9 @@ DocamsJS è il porting di un file Excel con le medesime funzioni della web app. 
 ## Features
         ◦ Inserimento dei voti presi in ogni materia divisi in trimestre e pentamestre;
         ◦ Possibilità di impostare soglie personalizzate per come visualizzare un voto (positivo, accettabile, negativo);
-        ◦ Visualizzazione di grafici a barre per ogni materia divisi per mese;
-        ◦ [non sicuro]Visualizzazione di un grafico spark line per sottolineare l’andamento nei vari mesi dell’anno;
+        ◦ Visualizzazione di grafici a barre per ogni materia;
         ◦ Previsione dei voti in pagella, soprattutto nel pentamestre: Docams indica se si rischia di essere bocciati;
-        ◦ [non sicuro]Impostazione di un obiettivo in ogni materia, con conseguente calcolo del percorso di voti da seguire;
+        ◦ Impostazione di un obiettivo in ogni materia, con conseguente calcolo del percorso di voti da seguire;
         ◦ Possibilità di salvare i propri dati in formato JSON;
         ◦ Possibilità di impostare la dark mode per migliorare la leggibilità;
         
