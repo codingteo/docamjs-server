@@ -553,10 +553,3 @@ h6, h5, h4, h3, h2, h1, p, label, main, button, nav, .row, .content,.lead, .disp
 #toggleMode:checked + #darkModeBtn .fa-sun:before {
     content: '\f185';
 }
-
-/* ---------------------------------------------------
-    MODIFICA VOTO
------------------------------------------------------ */
-.displayNoneModificaVoto{
-    display: none;
-}
