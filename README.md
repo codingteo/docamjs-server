@@ -10,7 +10,6 @@ DocamsJS è il porting di un file Excel con le medesime funzioni della web app. 
         ◦ Visualizzazione di grafici a barre per ogni materia;
         ◦ Previsione dei voti in pagella, soprattutto nel pentamestre: Docams indica se si rischia di essere bocciati;
         ◦ Impostazione di un obiettivo in ogni materia, con conseguente calcolo del percorso di voti da seguire;
-        ◦ Possibilità di salvare i propri dati in formato JSON;
         ◦ Possibilità di impostare la dark mode per migliorare la leggibilità;
         
 ## Strumenti utilizzati
