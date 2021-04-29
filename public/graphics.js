@@ -566,13 +566,13 @@ preparaSelectMaterie=function(id){
     for (i=0;i<utente.materie.length;i++){
         opzioneAggiungi=document.createElement("option")
         opzioneAggiungi.innerText=utente.materie[i].nome
-        if (id=="selectRimuoviVotoMateria"){
-            select.addEventListener("change",(e)=>preparaSelectVoti(e.target.value,"selectRimuoviVotoVoto"))
-        }
-        if (id=="selectModificaVotoMateria"){
-            select.addEventListener("change",(e)=>preparaSelectVoti(e.target.value,"selectModificaVotoVoto"))
-        }
         select.appendChild(opzioneAggiungi)
+    }
+    if (id=="selectRimuoviVotoMateria"){
+        select.addEventListener("change",(e)=>preparaSelectVoti(e.target.value,"selectRimuoviVotoVoto"))
+    }
+    if (id=="selectModificaVotoMateria"){
+        select.addEventListener("change",(e)=>preparaSelectVoti(e.target.value,"selectModificaVotoVoto"))
     }
 }
 
