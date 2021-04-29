@@ -157,7 +157,7 @@ creaUtente=function(){
         },3000)
     }
 
-    document.getElementById("downloadButton").setAttribute("download",utente.infoUtente.nome+utente.infoUtente.cognome+"DocamJS.json")
+    //document.getElementById("downloadButton").setAttribute("download",utente.infoUtente.nome+utente.infoUtente.cognome+"DocamJS.json")
 }
 
 creaMateria=function(){
